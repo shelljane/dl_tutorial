@@ -195,10 +195,22 @@ $\boldsymbol{W} = \mathop{\arg\min}_{\boldsymbol{W}} \mathop{\sum}_{i=1}^{N} L(\
 ### Loss Function
 
 ###
-- Evaluating the performance
+- $L(\overline{\boldsymbol{y}}, \boldsymbol{y})$, indicates the quality 
+- Smaller is better $\downarrow$
 - Cross entropy is for classification
 - e.g. $\boldsymbol{p} = [1, 0]$; $\boldsymbol{q} = [0.8, 0.2]$
-- $CE(\boldsymbol{p}, \boldsymbol{q}) = - 1 \times log(0.8) - 0 \times log(0.2)$
+- $CE(\boldsymbol{p}, \boldsymbol{q}) = - log(0.8)$
 
 ![bg right 80%](figs/ce.png)
+
+
+---
+### Gradient Descent
+
+###
+- Iterative algorithm
+- $\boldsymbol{W}^{(t)} = \boldsymbol{W}^{(t-1)} - \frac{\partial L}{\partial \boldsymbol{W}^{(t)}}$
+- Chain rule $\frac{dz}{dx} = \frac{dz}{dy} \frac{dy}{dx}$
+
+![bg right 80%](figs/sgd.png)
 
