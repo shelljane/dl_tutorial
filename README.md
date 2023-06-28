@@ -161,7 +161,7 @@ $\boldsymbol{W} = \mathop{\arg\min}_{\boldsymbol{W}} \mathop{\sum}_{i=1}^{N} L(\
 ### Output Function
 
 - $\boldsymbol{f}_M(\boldsymbol{x}) = \mbox{softmax} (\boldsymbol{W}_M \boldsymbol{x}_{M-1} + \boldsymbol{b}_M)$
-- $softmax (\boldsymbol{x}_M)_i = \frac{x_{M, i}}{\mathop{\sum}_j x_{M, j}}$
+- $\mbox{softmax} (\boldsymbol{x}_M)_i = \frac{x_{M, i}}{\mathop{\sum}_j x_{M, j}}$
 - Regarded as probabilities
 
 ![bg right 100%](figs/softmax.png)
@@ -231,7 +231,7 @@ $\boldsymbol{W} = \mathop{\arg\min}_{\boldsymbol{W}} \mathop{\sum}_{i=1}^{N} L(\
 ### Convolutional Neural Networks
 
 - Convolutional layer
-- Max/Avg. pooling layer 
+- Max/avg. pooling layer 
 - Fully connected layer (MLP)
 
 ![bg right 100%](figs/conv3.jpg)
@@ -343,8 +343,8 @@ class Net(nn.Module):
 
 ##
 - Define the layers
-- *self.conv1*: convolution layer, input channel 1, output channels 10, kernel size 5
-- *self.conv2*: convolution layer, input channel 10, output channels 20, kernel size 5 
+- "self.conv1": convolution layer, input channel 1, output channels 10, kernel size 5
+- "self.conv2": convolution layer, input channel 10, output channels 20, kernel size 5 
 
 ```python
 class Net(nn.Module):
@@ -371,8 +371,8 @@ class Net(nn.Module):
 ### Define the Model
 
 ##
-- *self.fc1*: fully connected layer, input size 320, output size 50
-- *self.fc2*: fully connected layer, input size 50, output size 10
+- "self.fc1": fully connected layer, input size 320, output size 50
+- "self.fc2": fully connected layer, input size 50, output size 10
 - How to get the input size of self.fc1 ?
 
 ```python
@@ -406,8 +406,8 @@ class Net(nn.Module):
 ---
 ### Instantiate the Model
 
-- *network* is the model
-- *optimizer* is for gradient descent
+- "network" is the model
+- "optimizer" is for gradient descent
 - Gradients are derived automatically
 
 ```python
@@ -439,10 +439,10 @@ for epoch in range(n_epochs):
 ---
 ### A Training Step
 
-- *output* is the inferred results
-- *loss* is the loss value
-- *loss.backward()* computes the gradients
-- *optimizer.step()* do gradient descent
+- "output" is the inferred results
+- "loss" is the loss value
+- "loss.backward()" computes the gradients
+- "optimizer.step()" do gradient descent
 
 ```python
         # Inference
@@ -459,9 +459,9 @@ for epoch in range(n_epochs):
 ---
 ### A Testing Step
 
-- *F.cross_entropy* computes the loss
-- *pred* is the prediction (the class with the maximum probability)
-- *(pred == target).sum()* computes the accuracy
+- "F.cross_entropy" computes the loss
+- "pred" is the prediction (the class with the maximum probability)
+- "(pred == target).sum()" computes the accuracy
 
 ```python
         # Inference
