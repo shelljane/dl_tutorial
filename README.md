@@ -209,8 +209,87 @@ $\boldsymbol{W} = \mathop{\arg\min}_{\boldsymbol{W}} \mathop{\sum}_{i=1}^{N} L(\
 
 ###
 - Iterative algorithm
-- $\boldsymbol{W}^{(t)} = \boldsymbol{W}^{(t-1)} - \frac{\partial L}{\partial \boldsymbol{W}^{(t)}}$
+- $\boldsymbol{W}^{(t)} = \boldsymbol{W}^{(t-1)} - \gamma \frac{\partial L}{\partial \boldsymbol{W}^{(t)}}$
+- $\gamma$ is the learning rate
 - Chain rule $\frac{dz}{dx} = \frac{dz}{dy} \frac{dy}{dx}$
 
 ![bg right 80%](figs/sgd.png)
+
+
+---
+# Implementation
+
+###
+- Convolutional Neural Networks
+- Training and Testing
+- PyTorch
+
+
+---
+### Convolution
+
+###
+- From signal processing
+- For feature extraction
+
+![bg right 90%](figs/conv.png)
+
+
+---
+### Convolutional Layers
+
+###
+- Convolutional layer
+- Preserve 2D structure
+- Local perception
+- Less weights
+
+![bg right 100%](figs/conv2.png)
+
+
+---
+### Convolutional Neural Networks
+
+###
+- Convolutional layer
+- Max/Avg. pooling layer 
+- Fully connected layer (MLP)
+
+![bg right 100%](figs/conv3.jpg)
+
+
+---
+### Training Neural Networks
+
+###
+- Sample a batch of data
+- Forward: compute the loss
+- backward: update the weights
+- $\boldsymbol{W}^{(t)} = \boldsymbol{W}^{(t-1)} - \gamma \frac{\partial L}{\partial \boldsymbol{W}^{(t)}}$
+
+![bg right 100%](figs/training.png)
+
+
+---
+### Testing Neural Networks
+
+###
+- Sample a batch of data
+- Compute the loss and accuracy
+
+![bg right 100%](figs/training.png)
+
+
+---
+### PyTorch
+
+###
+- PyTorch is famous
+- Computation graph
+
+    ![](figs/graph.png)
+
+![bg right 100%](figs/pytorch.png)
+
+
 
