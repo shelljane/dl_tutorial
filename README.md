@@ -243,7 +243,7 @@ $\boldsymbol{W} = \mathop{\arg\min}_{\boldsymbol{W}} \mathop{\sum}_{i=1}^{N} L(\
 
 - Sample a batch of data
 - Forward: compute the loss
-- backward: update the weights
+- Backward: update the weights
 - $\boldsymbol{W}^{(t)} = \boldsymbol{W}^{(t-1)} - \gamma \frac{\partial L}{\partial \boldsymbol{W}^{(t)}}$
 
 ![bg right 100%](figs/training.png)
