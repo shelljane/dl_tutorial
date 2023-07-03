@@ -161,7 +161,7 @@ $\boldsymbol{W} = \mathop{\arg\min}_{\boldsymbol{W}} \mathop{\sum}_{i=1}^{N} L(\
 ---
 ### Output Function
 
-- $\boldsymbol{f}_M(\boldsymbol{x}) = \text{softmax} (\boldsymbol{W}_M \boldsymbol{x}_{M-1} + \boldsymbol{b}_M)$
+- $\boldsymbol{x}_M = \text{softmax} (\boldsymbol{W}_M \boldsymbol{x}_{M-1} + \boldsymbol{b}_M)$
 - $\text{softmax} (\boldsymbol{x}_M)_i = \frac{x_{M, i}}{\mathop{\sum}_j x_{M, j}}$
 - Regarded as probabilities
 
