@@ -390,6 +390,25 @@ class Net(nn.Module):
 ---
 ### Define the Forward Pass
 
+- conv1 $\rightarrow$ pooling $\rightarrow$ ReLU 
+- conv2 $\rightarrow$ pooling $\rightarrow$ ReLU 
+- fc1 $\rightarrow$ ReLU $\rightarrow$ fc2  
+
+```python
+class Net(nn.Module):
+    def forward(self, x):
+        x = F.relu(F.max_pool2d(self.conv1(x), 2))
+        x = F.relu(F.max_pool2d(self.conv2(x), 2))
+        x = x.view(-1, 320) # flatten
+        x = F.relu(self.fc1(x))
+        x = self.fc2(x)
+        return x
+```
+
+
+---
+### Define the Forward Pass
+
 - conv1 $\rightarrow$ pooling $\rightarrow$ ReLU $\rightarrow$ conv2 $\rightarrow$ pooling $\rightarrow$ ReLU $\rightarrow$ fc1 $\rightarrow$ ReLU $\rightarrow$ fc2  
 
 ```python
@@ -480,6 +499,7 @@ for epoch in range(n_epochs):
 # Experiments
 
 - See classifiction.ipynb
+- https://github.com/shelljane/dl_tutorial
 
 
 
