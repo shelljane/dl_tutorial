@@ -442,7 +442,7 @@ optimizer = optim.SGD(network.parameters(), lr=learning_rate)
 ---
 ### Training and Testing
 
-- Epoch: a pass of training of **the dataset**
+- Epoch: a pass of training on **the dataset**
 - Step: an iteration of gradient descent on **a batch of data**
 
 ```python
