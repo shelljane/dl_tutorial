@@ -502,4 +502,202 @@ for epoch in range(n_epochs):
 - https://github.com/shelljane/dl_tutorial
 
 
+---
+# Advanced Topics -- Deep Learning in Practice
 
+- Network as a black box
+- Layer as a black box
+- Useful tricks
+
+
+---
+# Deep Learning in Practice
+
+- Network as a black box
+- (a) Formulate the task
+  -> classification, detection, segmentation, image-to-image, ...
+- (b) Find a state-of-the-art model
+  -> Carefully choose the input size (32x32, 256x256, 1024x1024, ...)
+- (c) Change the dataset to fit your task
+  -> Pay attention to the data format
+
+
+---
+# Deep Learning in Practice
+
+- Example: Car Detection
+
+![](figs/car.png)
+
+
+---
+# Deep Learning in Practice
+
+- Formulate the task: 
+  -> *Objective detection*
+- Find a state-of-the-art model: 
+  -> *YOLO-X*
+
+
+---
+# Deep Learning in Practice
+
+- Find it on Github
+  -> https://github.com/Megvii-BaseDetection/YOLOX
+
+![](figs/yolox.png)
+
+
+---
+# Deep Learning in Practice
+
+- Change the dataset to fit your task
+  -> YOLOX/docs/train_custom_data.md
+
+![](figs/prepare.png)
+
+
+---
+# Deep Learning in Practice
+
+- Go training
+
+![](figs/train.png)
+
+
+---
+# Deep Learning in Practice
+
+- Layer as a black box
+- (1) Find a backbone network
+- (2) Design add-on layers or modify it
+
+
+---
+# Deep Learning in Practice
+
+- Care about the input/output size!
+- Batched inputs: 
+- (a) One image: CxHxW array (C=3 for RGB)
+- (b) A batch of N images: NxCxHxW array
+
+![](figs/cnn.png)
+
+
+---
+# Deep Learning in Practice
+
+- Care about the input/output size!
+- Convolutional layer (Conv.): 
+- (a) Input size: $[N, C_{i-1}, H_{i-1}, W_{i-1}]$
+- (b) Output size: $[N, C_i, H_i, W_i]$
+
+![](figs/cnn.png)
+
+
+---
+# Deep Learning in Practice
+
+- Care about the size!
+- Fully connected layer (FC)
+- (a) Input size: $[N, M_{i-1}]$
+- (b) Output size: $[N, M_i]$
+- Flattening is needed between Conv. and FC layers
+
+![bg right 50%](figs/fc.png)
+
+
+---
+# Deep Learning in Practice
+
+- Then use them as LEGO blocks!
+
+![bg right 60%](figs/lego.jpg)
+
+
+---
+# Deep Learning in Practice
+
+- Inception Block
+
+![bg right 100%](figs/block.png)
+
+
+---
+# Deep Learning in Practice
+
+- Inception V3 Network
+
+![bg right 90%](figs/inception.png)
+
+
+---
+# Deep Learning in Practice
+
+- Useful tricks
+- (1) Number of parameters
+- (2) Normalization
+- (3) Other tricks
+
+
+---
+# Deep Learning in Practice
+
+- Underfitting and overfitting
+- (a) Underfitting: low training accuracy
+- (b) Overfitting: low testing accuracy but high training accuracy
+
+![](figs/fit.png)
+
+
+---
+# Deep Learning in Practice
+
+- Convolutional layer
+- (a) Kernel size: 3x3, 5x5, 11x11, ... ...
+- (b) Channel width: 16, 32, 64, ... ...
+- Principles
+- (a) Larger kernel and channel sizes => more parameters to train
+- (b) More parameters => higher capacity, overfitting, harder to train
+
+
+---
+# Deep Learning in Practice
+
+- Abnormal gradients
+- (a) Gradient vanishing
+- (b) Gradient explosion
+
+![](figs/abnormal.jpg)
+
+![bg right 100%](figs/explode.png)
+
+
+---
+# Deep Learning in Practice
+
+- Batch normalization
+  -> Stablize the training by normalizing the outputs of each layer 
+
+![bg right 100%](figs/bn.png)
+
+
+---
+# Deep Learning in Practice
+
+- Other tricks, e.g. 
+- (a) Adjust the learning rate
+- (b) Weight regularization
+- (c) Dropout
+
+![](figs/lr.png)
+
+
+---
+# Advanced Topics -- Beyond Classification
+
+- Semantic segmentation
+- Image-to-image translation
+- Deep learning for OPC
+
+![](figs/fcn.png)
