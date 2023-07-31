@@ -701,3 +701,78 @@ for epoch in range(n_epochs):
 - Deep learning for OPC
 
 ![](figs/fcn.png)
+
+
+---
+# Semantic Segmentation
+
+- Deconvolutional Layer
+
+![](figs/deconv.png)
+
+
+---
+# Semantic Segmentation
+
+- Fully Convolutional Network (FCN)
+
+![](figs/fcn2.png)
+
+
+---
+# Semantic Segmentation
+
+- The last layer
+
+![](figs/segment.jpg)
+
+![bg right 100%](figs/fcn_softmax.png)
+
+
+---
+# Image-to-image Translation
+
+- Generative Adversarial Network (GAN)
+- Generator: generate "fake" image
+- Descriminator: distinguish real and "fake" images
+
+![](figs/gan.png)
+
+
+---
+# Deep Learning for OPC
+
+- Imag-to-image translation
+- Input: target image $Z_t$
+- Output: OPC image $Z^*$
+- Target: $\Vert Litho(Z^*) - Z_t \Vert_2^2$
+- Can be guided by ILT methods
+
+![bg right 100%](figs/ganopc.png)
+
+
+---
+# Deep Learning for OPC
+
+![](figs/compare.png)
+
+
+---
+# Deep Learning for OPC
+
+![](figs/ilt.png)
+
+
+---
+# What's Next?
+
+- Black-box optimization
+- $min_x f(x)$, $f$ is a black-box
+
+![](figs/blackbox.png)
+
+![bg right 100%](figs/bayesian.png)
+
+
+
+
