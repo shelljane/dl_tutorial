@@ -740,6 +740,50 @@ for epoch in range(n_epochs):
 
 
 ---
+# Generative Adversarial Network (GAN)
+
+- Discriminative vs. Generative Modeling
+
+![bg left 80%](figs/disc.png)
+
+![bg right 80%](figs/gen.png)
+
+
+---
+# Generative Adversarial Network (GAN)
+
+- Generator: generate "fake" image
+- Descriminator: distinguish real and "fake" images
+
+![bg right 80%](figs/gan2.png)
+
+
+---
+# Generative Adversarial Network (GAN)
+
+- Generator: U-Net
+
+![](figs/unet.png)
+
+
+---
+# Generative Adversarial Network (GAN)
+
+- Discriminator: convolutional neural network (CNN)
+
+![](figs/cnn2.png)
+
+
+---
+# Generative Adversarial Network (GAN)
+
+- Generator: generate "fake" image
+- Descriminator: distinguish real and "fake" images
+
+![](figs/gantrain.png)
+
+
+---
 # Deep Learning for OPC
 
 - Imag-to-image translation
