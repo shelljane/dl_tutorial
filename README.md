@@ -818,5 +818,126 @@ for epoch in range(n_epochs):
 ![bg right 100%](figs/bayesian.png)
 
 
+---
+# Black-box Optimization
+
+- Example: rule-based OPC
+  -> Fragments: lengths of corner/other fragments
+  -> SRAF: distance, length, width
+
+![](figs/fragment.png)
+
+![bg right 60%](figs/sraf.png)
 
 
+---
+# Black-box Optimization
+
+- Simulated annealing (SA)
+
+![](figs/sa.png)
+
+
+---
+# Simulated Annealing, an Example
+
+- Initial parameter: d=50, w=100, l=200, cost=10, temperature=10
+- 1st iteration: d=40, w=100, l=200, cost=5, $\Delta_{cost} < 0$ => **accept**
+- 2nd iteration: d=40, w=120, l=200, cost=15, 
+  $\Delta_{cost} > 0$ => accept with a probability of $e^{-\frac{\Delta_{cost}}{temperature}}=e^{-1}$
+- ... ... 
+
+
+---
+# Pros \& Cons
+
+- Pros: low computation complexity, fast convergence
+- Cons: local and sequential search, sensitive to the initial point
+
+
+---
+# Concerns for Practical Applications
+
+- Long evaluation time (e.g. calibre, innovus, ... ...)
+  => Only a small number of iterations is allowed
+- Search space is super large
+  => many variables, many possible values
+
+
+---
+# Exploration and Exploitation
+
+- Exploration: get more unknown/uncertain knowledge => need more iterations
+- Exploitation: make use of known/certain knowledge => trapped by local optima
+- *A good search method should balance exploration and exploitation*
+- Problem 1: how to represent the certainty? 
+- Problem 2: how to utilize the certainty? 
+
+
+---
+# How to Represent the Certainty? 
+
+- Gaussian Process (GP)
+  $\mu, \sigma = GP(x), s.t. y \sim \mathcal{N}(\mu, \sigma)$
+- Input: variables $x$
+- Outputs: mean $\mu$ and variance $\sigma$ of the prediction $y$
+- *Variance is the uncertainty*
+
+![bg 100% right](figs/gp.png)
+
+
+---
+# How to Utilize the Certainty? 
+
+- Expected Improvement (EI)
+- $x^* = \arg\max_x E[GP(x)]$
+- EI selects a point with a high $\mu$ or a large $\sigma$
+
+![bg 100% right](figs/ei.png)
+
+
+---
+# Bayesian Optimization
+
+- Surrogate model: GP
+- Acquisition function: EI
+- Other models/functions are also applicable
+
+![bg 100% right](figs/ei.png)
+
+
+---
+# Bayesian Optimization
+
+- (1) Sample initial points and evaluate them
+- (2) Train the GP with the data
+- (3) Sample a new point by maximizing EI
+
+![bg 60% right](figs/bo.png)
+
+
+---
+# Bayesian Optimization, an Example
+
+- **Initialization**
+- Randomly generate 16 recipes
+  e.g. {d=50, w=100, l=200}, {d=100, w=120, l=70}, ...
+- Evaluate the recipes and get the quality of results (QoRs)
+  e.g. using the parameters to run a full-chip OPC
+- Obtain the data: $x$: recipes, $y$: QoRs
+
+
+---
+# Bayesian Optimization, an Example
+
+- **Optimization**
+- Train a GP with known data
+- Sample a new recipe by maximizing EI 
+- Evaluate the recipe and get its QoRs
+- Repeat these steps for N iterations
+
+
+---
+# Bayesian Optimization Toolbox
+
+- Optuna: https://optuna.readthedocs.io/en/stable/
